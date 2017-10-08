@@ -10,28 +10,47 @@ class Switch extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			isTurnedOn : false,
-			status: 'PIN '+ this.props.pinNumber + ' is turned OFF'
+			isPinTurnedOn : false,
+			status: 'PIN '+ this.props.pinNumber + ' is turned OFF',
+			isButtonDisabled : false,
 		}
 	}
 
-	handleClick (switchNumber) {
+	handleClick (pinNumber) {
 
 		//Server request switching PIN on/off
-		axios.post(`${config.serverAddress}/switch/${this.props.pinNumber}`,
+		/*axios.post(`${config.serverAddress}/switch/${this.props.pinNumber}`,
 			{
-				pinShouldBeTurnedOn : ! this.state.isTurnedOn
+				pinShouldBeTurnedOn : ! this.state.isPinTurnedOn
 			})
 			.then(function(response) {
 				this.setState ({
-					isTurnedOn: ! this.state.isTurnedOn,
+					isPinTurnedOn: ! this.state.isPinTurnedOn,
 					status : 'PIN ' + this.props.pinNumber +
-					' is turned ' + (this.state.isTurnedOn ? 'OFF' : 'ON'),
+					' is turned ' + (this.state.isPinTurnedOn ? 'OFF' : 'ON'),
 				})
+				this.refs.btn.removeAttribute("disabled");
 			})
 			.catch(function (error) {
 
 			});
+		*/
+		if( !this.state.isButtonDisabled){
+			setTimeout(() => {
+				this.setState ({
+					isPinTurnedOn: ! this.state.isPinTurnedOn,
+					status : `PIN ${this.props.pinNumber} is turned 
+							${this.state.isPinTurnedOn ? 'OFF' : 'ON'}`,
+					isButtonDisabled: false,
+				})
+			},4000);
+
+			this.setState({
+				isButtonDisabled: true,
+				status: `PIN ${this.props.pinNumber} is turning 
+							${this.state.isPinTurnedOn ? 'OFF' : 'ON'}...`
+			})
+		}
 	}
 
 	render () {
@@ -44,8 +63,9 @@ class Switch extends React.Component {
 					{this.state.status}
 				</div>
 				<Button
-					value = {this.state.isTurnedOn ? 'Turn off' : 'Turn on'}
+					value = {this.state.isPinTurnedOn ? 'Turn off' : 'Turn on'}
 					onClick = {(i) => this.handleClick(i)}
+					isDisabled = {this.state.isButtonDisabled}
 				/>
 			</div>
 		);

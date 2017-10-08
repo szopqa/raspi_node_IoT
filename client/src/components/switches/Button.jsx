@@ -2,7 +2,7 @@ import React from 'react';
 
 function Button(props) {
 	return (
-		<button className="switch-button" onClick={props.onClick}>
+		<button  disabled={props.isDisabled} className="switch-button" onClick={props.onClick}>
 			{props.value}
 		</button>
 	);
