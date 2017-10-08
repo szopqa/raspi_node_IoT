@@ -16,26 +16,9 @@ class Switch extends React.Component {
 		}
 	}
 
-	handleClick (pinNumber) {
+	handleClick () {
 
-		//Server request switching PIN on/off
-		/*axios.post(`${config.serverAddress}/switch/${this.props.pinNumber}`,
-			{
-				pinShouldBeTurnedOn : ! this.state.isPinTurnedOn
-			})
-			.then(function(response) {
-				this.setState ({
-					isPinTurnedOn: ! this.state.isPinTurnedOn,
-					status : 'PIN ' + this.props.pinNumber +
-					' is turned ' + (this.state.isPinTurnedOn ? 'OFF' : 'ON'),
-				})
-				this.refs.btn.removeAttribute("disabled");
-			})
-			.catch(function (error) {
-
-			});
-		*/
-		if( !this.state.isButtonDisabled){
+		if( ! this.state.isButtonDisabled){
 			setTimeout(() => {
 				this.setState ({
 					isPinTurnedOn: ! this.state.isPinTurnedOn,
@@ -43,19 +26,39 @@ class Switch extends React.Component {
 							${this.state.isPinTurnedOn ? 'OFF' : 'ON'}`,
 					isButtonDisabled: false,
 				})
-			},4000);
+
+
+				//Server request switching PIN on/off
+				/*axios.post(`${config.serverAddress}/switch/${this.props.pinNumber}`,
+					{
+						pinShouldBeTurnedOn : ! this.state.isPinTurnedOn
+					})
+					.then(function(response) {
+						this.setState ({
+							isPinTurnedOn: ! this.state.isPinTurnedOn,
+							status : 'PIN ' + this.props.pinNumber +
+							' is turned ' + (this.state.isPinTurnedOn ? 'OFF' : 'ON'),
+						})
+						this.refs.btn.removeAttribute("disabled");
+					})
+					.catch(function (error) {
+
+					});
+				*/
+
+			},3000);
 
 			this.setState({
 				isButtonDisabled: true,
 				status: `PIN ${this.props.pinNumber} is turning 
-							${this.state.isPinTurnedOn ? 'OFF' : 'ON'}...`
+							${this.state.isPinTurnedOn ? 'OFF' : 'ON'} ...`
 			})
 		}
 	}
 
 	render () {
 		return(
-			<div className="switch">
+			<div className="switch" style={{background: (this.state.isPinTurnedOn ? '#1DAA2A':'#8A090D')}}>
 				<div className="switch-header">
 					{this.props.header}
 				</div>
@@ -64,7 +67,7 @@ class Switch extends React.Component {
 				</div>
 				<Button
 					value = {this.state.isPinTurnedOn ? 'Turn off' : 'Turn on'}
-					onClick = {(i) => this.handleClick(i)}
+					onClick = {() => this.handleClick()}
 					isDisabled = {this.state.isButtonDisabled}
 				/>
 			</div>

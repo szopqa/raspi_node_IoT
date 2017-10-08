@@ -1,16 +1,13 @@
 .switch {
-    background-color: #2a9396;
-    margin: 4.5%;
+    margin-top: 5%;
+    margin-left: 8%;
+    margin-bottom: 5%;
     padding: 20px;
     text-align: center;
     font-size: 24px;
     width: 260px;
     border-radius: 50px;
     float: left;
-}
-
-.switch:hover{
-    background-color: #287e96;
 }
 
 .switch-header{

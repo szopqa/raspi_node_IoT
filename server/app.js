@@ -1,12 +1,16 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
-const {controllingRouters} = require('./routers/controllingRoutes');
+const router = require('./routers/switchesRoutes.js');
 
 const app = express();
+app.use(bodyParser.json());
 
-controllingRouters(app);
 
-const PORT = 3000;
+router.switchesRoutes(app);
+
+
+const PORT = process.env.PORT || 8888;
 app.listen(PORT, function () {
 	console.log('Server started on port ' + PORT + ' ...');
 });
