@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import axios from 'axios';
-import config from '../../config/config';
+import config from '../../config/config.js';
 
 import './switch.css';
 
@@ -14,6 +14,19 @@ class Switch extends React.Component {
 			status: 'PIN '+ this.props.pinNumber + ' is turned OFF',
 			isButtonDisabled : false,
 		}
+	}
+
+	componentDidMount(){
+		axios.post(`http://${config.serverAddress}/switch/${this.props.pinNumber}`,
+			{
+				pinShouldBeTurnedOn : false
+			})
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((err) => {
+				console.log(err);
+			})
 	}
 
 	handleClick () {
@@ -32,8 +45,6 @@ class Switch extends React.Component {
 			},3000);
 			*/
 
-			//Request passed through proxy which allows cross-origin requests
-			const proxyurl = "https://cors-anywhere.herokuapp.com/";
 			axios.post(`http://${config.serverAddress}/switch/${this.props.pinNumber}`,
 				{
 					pinShouldBeTurnedOn : ! this.state.isPinTurnedOn
@@ -54,12 +65,14 @@ class Switch extends React.Component {
 					})
 				});
 
+
 			//Set while waiting for server action
 			this.setState({
 				isButtonDisabled: true,
 				status: `PIN ${this.props.pinNumber} is turning 
 							${this.state.isPinTurnedOn ? 'OFF' : 'ON'} ...`
 			})
+
 		}
 	}
 
