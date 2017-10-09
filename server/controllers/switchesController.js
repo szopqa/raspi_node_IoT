@@ -5,12 +5,7 @@ function changeSwitchState(req,res) {
 	if( ! req.body )
 		return res.sendStatus(400);
 
-
-	if (req.body.pinShouldBeTurnedOn ){
-		res.send(`PIN ${pinNumber} turned on`);
-	} else {
-		res.send(`PIN ${pinNumber} turned off`);
-	}
+	res.send(`PIN ${pinNumber} turned ${(req.body.pinShouldBeTurnedOn ? 'on' : 'off')}`);
 
 }
 
