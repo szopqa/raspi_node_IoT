@@ -3,10 +3,6 @@ var Raspi = require('raspi-io');
 
 var pinsStatus = require('./pins_status/pinsStatus.js');
 
-var board = new five.Board({
-		io : new Raspi()
-	});
-
 function switchPin(pinNumber, pinShouldBeTurnedOn) {
 /*
 	
@@ -30,9 +26,12 @@ function switchPin(pinNumber, pinShouldBeTurnedOn) {
 	//pins_status.updatePinState(pinSwitched);
 	
 */
+	var board = new five.Board({
+		io : new Raspi()	
+	});
 
 	board.on('ready',function () {
-		(new five.Led('P1-7')).strobe();
+		(new five.Led('P1-7')).strobe();		
 	})
 }
 

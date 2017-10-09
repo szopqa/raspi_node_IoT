@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 router.switchesRoutes(app);
 
 
-const PORT = process.env.PORT || 8888;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
 	console.log('Server started on port ' + PORT + ' ...');
 });
