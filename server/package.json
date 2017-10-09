@@ -14,6 +14,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "expect": "^21.2.1",
+    "johnny-five": "^0.11.6",
     "mocha": "^4.0.1",
     "supertest": "^3.0.0"
   }
