@@ -14,16 +14,8 @@ class App extends Component {
           <h1 className="App-title">Raspi Controller</h1>
         </header>
           <Switch
-              header = 'Switch'
-              pinNumber = {1}
-          />
-          <Switch
-              header = 'Switch'
-              pinNumber = {2}
-          />
-          <Switch
-              header = 'Switch'
-              pinNumber = {3}
+              header = 'Led switch'
+              pinNumber = {7}
           />
       </div>
     );

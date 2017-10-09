@@ -9,7 +9,8 @@ function changeSwitchState(req,res) {
 		return res.sendStatus(400);
 
 	//Changing state of chosen pin
-	pinSwitcher.switchPin(pinNumber,req.body.pinShouldBeTurnedOn);
+	//pinSwitcher.switchPin(pinNumber,req.body.pinShouldBeTurnedOn);
+	pinSwitcher.switcher.togglePin(pinNumber,req.body.pinShouldBeTurnedOn);
 	res.send('PIN ' + pinNumber + ' turned ' + (req.body.pinShouldBeTurnedOn ? 'on' : 'off'));
 }
 

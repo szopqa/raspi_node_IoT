@@ -3,6 +3,7 @@ var Raspi = require('raspi-io');
 
 var pinsStatus = require('./pins_status/pinsStatus.js');
 
+
 function switchPin(pinNumber, pinShouldBeTurnedOn) {
 
 	var board = new five.Board({
@@ -14,7 +15,7 @@ function switchPin(pinNumber, pinShouldBeTurnedOn) {
 
 		var led = new five.Led('P1-' + pinNumber);
 
-		pinShouldBeTurnedOn ? led.on() : led.of();
+		pinShouldBeTurnedOn ? led.on() : led.off();
 
 		let pinSwitched = {
 			pinNumber : pinNumber,
@@ -32,6 +33,24 @@ function switchPin(pinNumber, pinShouldBeTurnedOn) {
 
 }
 
+
+function Switcher(Board) {
+	this.Board = Board;
+}
+
+var switcher = new Switcher(
+	new five.Board({
+		io : new Raspi()
+	}));
+
+switcher.togglePin = function(pinNumber,pinShouldBeTurnedOn){
+	this.Board.on('ready',function () {
+		var led = new five.Led('P1-' + pinNumber);
+
+		pinShouldBeTurnedOn ? led.on() : led.off();
+	})
+};
+
 module.exports = {
-	switchPin : switchPin
+	switcher : switcher
 };
