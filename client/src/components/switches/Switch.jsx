@@ -49,7 +49,8 @@ class Switch extends React.Component {
 				})
 				.catch((error) => {
 					this.setState({
-						status : 'Error while connecting to server...'
+						status : 'Error while connecting to server...',
+						isButtonDisabled : false,
 					})
 				});
 
