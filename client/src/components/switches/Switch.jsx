@@ -19,6 +19,9 @@ class Switch extends React.Component {
 	handleClick () {
 
 		if( ! this.state.isButtonDisabled){
+
+			//Async request simulation purpose
+			/*
 			setTimeout(() => {
 				this.setState ({
 					isPinTurnedOn: ! this.state.isPinTurnedOn,
@@ -26,28 +29,31 @@ class Switch extends React.Component {
 							${this.state.isPinTurnedOn ? 'OFF' : 'ON'}`,
 					isButtonDisabled: false,
 				})
-
-
-				//Server request switching PIN on/off
-				/*axios.post(`${config.serverAddress}/switch/${this.props.pinNumber}`,
-					{
-						pinShouldBeTurnedOn : ! this.state.isPinTurnedOn
-					})
-					.then(function(response) {
-						this.setState ({
-							isPinTurnedOn: ! this.state.isPinTurnedOn,
-							status : 'PIN ' + this.props.pinNumber +
-							' is turned ' + (this.state.isPinTurnedOn ? 'OFF' : 'ON'),
-						})
-						this.refs.btn.removeAttribute("disabled");
-					})
-					.catch(function (error) {
-
-					});
-				*/
-
 			},3000);
+			*/
 
+			//Request passed through proxy which allows cross-origin requests
+			const proxyurl = "https://cors-anywhere.herokuapp.com/";
+			axios.post(`http://${config.serverAddress}/switch/${this.props.pinNumber}`,
+				{
+					pinShouldBeTurnedOn : ! this.state.isPinTurnedOn
+				})
+				.then((response) => {
+					console.log(response);
+					this.setState ({
+						isPinTurnedOn: ! this.state.isPinTurnedOn,
+						status : 'PIN ' + this.props.pinNumber +
+						' is turned ' + (this.state.isPinTurnedOn ? 'OFF' : 'ON'),
+						isButtonDisabled : false,
+					});
+				})
+				.catch((error) => {
+					this.setState({
+						status : 'Error while connecting to server...'
+					})
+				});
+
+			//Set while waiting for server action
 			this.setState({
 				isButtonDisabled: true,
 				status: `PIN ${this.props.pinNumber} is turning 
