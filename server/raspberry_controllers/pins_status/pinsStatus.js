@@ -9,14 +9,14 @@ function getPinsStatus() {
 
 function updatePinState(updatedPin) {
 
-	let currentStatus = getPinsStatus();
+	var currentStatus = getPinsStatus();
 
 	currentStatus.push(updatedPin);
 	console.log(currentStatus);
 
 	JSON.stringify(currentStatus);
 
-	fs.writeFileSync('./raspberry_controllers/pinsStatus/status.json',currentStatus);
+	fs.writeFileSync('./raspberry_controllers/pins_status/status.json',currentStatus);
 }
 
 module.exports = {

@@ -1,5 +1,5 @@
 let pinSwitcher = require('../raspberry_controllers/pinSwitcher.js');
-let pinsStatus = require('../raspberry_controllers/pinsStatus/pinsStatus.js');
+let pinsStatus = require('../raspberry_controllers/pins_status/pinsStatus.js');
 
 function changeSwitchState(req,res) {
 

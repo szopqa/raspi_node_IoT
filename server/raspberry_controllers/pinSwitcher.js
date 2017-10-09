@@ -1,9 +1,9 @@
-const five = require('johnny-five');
-const Raspi = require('raspi-io');
+var five = require('johnny-five');
+var Raspi = require('raspi-io');
 
-let pinsStatus = require('./pinsStatus/pinsStatus.js');
+var pinsStatus = require('./pins_status/pinsStatus.js');
 
-let board = new five.Board({
+var board = new five.Board({
 		io : new Raspi()
 	});
 
@@ -19,7 +19,7 @@ function switchPin(pinNumber, pinShouldBeTurnedOn) {
 			pinNumber : pinNumber,
 			state : (pinShouldBeTurnedOn ? 1 : 0),
 		};
-		//pinsStatus.updatePinState(pinSwitched);
+		//pins_status.updatePinState(pinSwitched);
 	});
 
 	//testing purpose
@@ -27,7 +27,7 @@ function switchPin(pinNumber, pinShouldBeTurnedOn) {
 		pinNumber : pinNumber,
 		state : (pinShouldBeTurnedOn ? 1 : 0),
 	};
-	//pinsStatus.updatePinState(pinSwitched);
+	//pins_status.updatePinState(pinSwitched);
 	
 */
 

@@ -1,4 +1,4 @@
-let switchesController = require('../controllers/switchesController.js');
+var switchesController = require('../controllers/switchesController.js');
 
 function switchesRoutes(app) {
 
