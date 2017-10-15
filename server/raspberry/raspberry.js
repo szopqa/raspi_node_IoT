@@ -14,6 +14,7 @@ module.exports = function (app) {
 		var pins = {
 			led7 : new j5.Led('P1-7'),
 			led24 : new j5.Led('P1-24'),
+			led22 : new j5.Led('P1-22'),
 		};
 
 		switchController(app,pins);
