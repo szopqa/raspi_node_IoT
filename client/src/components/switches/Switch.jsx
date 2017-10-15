@@ -17,15 +17,21 @@ class Switch extends React.Component {
 	}
 
 	componentDidMount(){
-		axios.post(`http://${config.serverAddress}/switch/${this.props.pinNumber}`,
-			{
-				pinShouldBeTurnedOn : false
-			})
+
+		//Getting current switches state
+		axios.get(`http://${config.serverAddress}/switch`)
 			.then((response) => {
-				console.log(response);
+
+				var isPinAlreadyOn = response.data['isPin' + this.props.pinNumber + 'On'];
+
+				this.setState({
+					isPinTurnedOn : isPinAlreadyOn,
+					status : 'PIN ' + this.props.pinNumber +
+					' is turned ' + (isPinAlreadyOn ? 'ON' : 'OFF'),
+				})
 			})
 			.catch((err) => {
-				console.log(err);
+
 			})
 	}
 
