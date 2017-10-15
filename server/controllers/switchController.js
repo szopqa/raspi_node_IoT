@@ -27,6 +27,33 @@ module.exports = function switchController(app,pins) {
 		}
 	});
 
+	app.post('/servo',function (req,res) {
+
+		var servoAction = req.body.servoAction;
+
+		switch (servoAction){
+
+			case 'min':
+				pins.servo.min();
+				res.send('Switched servo position to : min');
+				break;
+
+			case 'max':
+				pins.servo.max();
+				res.send('Switched servo position to : max');
+				break;
+			case 'center':
+				pins.servo.center();
+				res.send('Switched servo position to : center');
+				break;
+
+			default :
+				res.status(400).send('Invalid servo action');
+				break;
+		}
+
+
+	});
 
 	app.get('/switch', function (req,res) {
 

@@ -15,8 +15,13 @@ module.exports = function (app) {
 			led7 : new j5.Led('P1-7'),
 			led24 : new j5.Led('P1-24'),
 			led22 : new j5.Led('P1-22'),
+			servo : new j5.Servo({
+				pin : 'P1-33',
+				type : 'continuous',
+				range : [0,360],
+				center : true,
+			}),
 		};
-
 		switchController(app,pins);
 	});
 };
