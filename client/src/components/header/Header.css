@@ -1,0 +1,21 @@
+.App-header{
+    margin: auto;
+    margin-top: 1%;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 7s linear;
+    margin-top: 30%;
+}
+
+.App-title {
+    text-align: center;
+    font-size: 3em;
+    margin-top: 8%;
+    font-weight: bold;
+    color: #b9d2ff;
+}
+
+@keyframes App-logo-spin {
+    50% {transform: rotate(30deg)}
+}

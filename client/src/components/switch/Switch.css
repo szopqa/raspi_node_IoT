@@ -1,13 +1,11 @@
 .switch {
     margin-top: 5%;
-    margin-left: 8%;
     margin-bottom: 5%;
     padding: 20px;
     text-align: center;
     font-size: 24px;
-    width: 260px;
     border-radius: 50px;
-    float: left;
+    border: 3px solid darkorange;
 }
 
 .switch-header{
@@ -19,11 +17,10 @@
 .switch-button{
     background-color: #0d4332;
     color:white;
-    border: none;
+    border: 3px solid blanchedalmond;
     padding: 15px 32px;
-    margin-top: 20px;
+    margin: 10px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 16px;
 }

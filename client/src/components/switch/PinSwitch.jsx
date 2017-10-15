@@ -3,7 +3,7 @@ import Button from './Button';
 import axios from 'axios';
 import config from '../../config/config.js';
 
-import './switch.css';
+import './Switch.css';
 
 class Switch extends React.Component {
 
@@ -18,7 +18,7 @@ class Switch extends React.Component {
 
 	componentDidMount(){
 
-		//Getting current switches state
+		//Getting current pins state
 		axios.get(`http://${config.serverAddress}/switch`)
 			.then((response) => {
 
