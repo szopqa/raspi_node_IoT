@@ -17,7 +17,7 @@ function Header (props) {
 					</Col>
 					<Col xs={8} lg={10}>
 						<div className="App-title">
-							Monitoring System
+							Smart Monitoring System
 						</div>
 					</Col>
 				</Row>
