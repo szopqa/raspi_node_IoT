@@ -5,7 +5,7 @@ import config from '../../config/config.js';
 
 import './Switch.css';
 
-var position = {
+const position = {
 	center : 'center',
 	min : 'min',
 	max : 'max',
@@ -91,7 +91,7 @@ class ServoSwitch extends React.Component {
 
 	render(){
 		return(
-			<div className="switch" style={{background: (this.state.isPinTurnedOn ? '#1DAA2A':'#8A090D')}}>
+			<div className="switch">
 				<div className="switch-header">
 					{this.props.header}
 				</div>
