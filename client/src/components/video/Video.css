@@ -1,0 +1,15 @@
+#video{
+    width: 60%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    border: transparent;
+    box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.2), 0 20px 60px 0 rgba(0, 0, 0, 0.19);
+    transition: 1s;
+    border-radius: 50px;
+    float: none;
+ }
+
+#video:hover {
+    width: 100%;
+    border-radius: 20px;
+}
