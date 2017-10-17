@@ -1,11 +1,15 @@
 .switch {
     margin-top: 5%;
     margin-bottom: 5%;
-    padding: 20px;
+    padding: 4%;
     text-align: center;
     font-size: 24px;
     border-radius: 50px;
-    border: 3px solid darkorange;
+    border: 3px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #b9d2ff;
+    background-color: #1DAA2A;
+    opacity: 0.9;
 }
 
 .switch-header{
@@ -17,12 +21,22 @@
 .switch-button{
     background-color: #0d4332;
     color:white;
-    border: 3px solid blanchedalmond;
+    border: 2px solid blanchedalmond;
     padding: 15px 32px;
     margin: 10px;
     text-align: center;
     display: inline-block;
     font-size: 16px;
+    border-radius: 12px;
+    animation : pulse 2s infinite;
+}
+
+.switch-button:enabled:hover{
+    background-color: #0d3826;
+}
+
+@keyframes pulse {
+    60% {transform:scale(1.02,1.02) }
 }
 
 .switch-button:disabled{

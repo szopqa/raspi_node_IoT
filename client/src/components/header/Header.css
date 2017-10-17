@@ -1,6 +1,5 @@
 .App-header{
     margin: auto;
-    margin-top: 1%;
 }
 
 .App-logo {
@@ -10,10 +9,10 @@
 
 .App-title {
     text-align: center;
-    font-size: 3em;
+    font-size: 5em;
     margin-top: 8%;
     font-weight: bold;
-    color: #b9d2ff;
+    color: #0e2e3e;
 }
 
 @keyframes App-logo-spin {
