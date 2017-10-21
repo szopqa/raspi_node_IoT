@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Header from '../header/Header';
-import PinSwitches from '../switch/PinSwitches';
+import Header from '../header/Header.jsx';
+import MainPage from '../main-page/MainPage.jsx';
 
 import './App.css';
 
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-        <PinSwitches/>
+        <MainPage/>
       </div>
     );
   }

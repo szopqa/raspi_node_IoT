@@ -1,7 +1,7 @@
 import React from 'react';
-import {Grid,Col,Row} from 'react-bootstrap';
+import {Grid,Col,Row,PageHeader} from 'react-bootstrap';
 
-import logo from '../images/logo.svg'
+import logo from '../../images/logo.svg'
 import './Header.css';
 
 function Header (props) {
@@ -10,12 +10,12 @@ function Header (props) {
 		<div className="container">
 			<Grid>
 				<Row className = "App-header">
-					<Col xs={4} lg={2}>
+					<Col smHidden xsHidden lg={2}>
 						<div className="App-logo">
 							<img src={logo} alt="logo"/>
 						</div>
 					</Col>
-					<Col xs={8} lg={10}>
+					<Col sm={8} lg={10}>
 						<div className="App-title">
 							Smart Monitoring System
 						</div>

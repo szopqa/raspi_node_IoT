@@ -3,7 +3,7 @@
     margin-bottom: 5%;
     padding: 4%;
     text-align: center;
-    font-size: 24px;
+    font-size: 1.8em;
     border-radius: 50px;
     border: 3px solid transparent;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -13,7 +13,7 @@
 }
 
 .switch-header{
-    font-size: 30px;
+    font-size: 1em;
     font-weight:bold;
     color: white;
 }
@@ -26,7 +26,7 @@
     margin: 10px;
     text-align: center;
     display: inline-block;
-    font-size: 16px;
+    font-size: 0.7em;
     border-radius: 12px;
     animation : pulse 2s infinite;
 }

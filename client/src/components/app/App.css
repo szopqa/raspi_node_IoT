@@ -1,5 +1,5 @@
 body{
-    background-image: url("../images/background.jpg");
+    background-image: url("../../images/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -7,7 +7,5 @@ body{
 
 .App {
   text-align: center;
-  width:100%;
-  height:auto;
 }
 

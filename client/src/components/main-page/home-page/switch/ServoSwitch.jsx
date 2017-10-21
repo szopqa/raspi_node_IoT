@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import axios from 'axios';
-import config from '../../config/config.js';
+import config from '../../../../config/config.js';
 
 import './Switch.css';
 
@@ -51,7 +51,7 @@ class ServoSwitch extends React.Component {
 	handleClick(servoAction){
 
 		//Changing clicked button's state to disabled
-		var buttons  = this.state.buttons.slice();
+		let buttons  = this.state.buttons.slice();
 
 		buttons.map((button) => {
 			if(button.isDisabled){

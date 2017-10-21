@@ -1,9 +1,9 @@
 import React from 'react';
 import {Grid,Col,Row} from 'react-bootstrap';
 
-import PinSwitch from './PinSwitch';
-import ServoSwitch from './ServoSwitch';
-import Video from '../video/Video';
+import PinSwitch from './switch/PinSwitch.jsx';
+import ServoSwitch from './switch/ServoSwitch.jsx';
+import Video from './video/Video.jsx';
 
 function PinSwitches (props){
 	return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import axios from 'axios';
-import config from '../../config/config.js';
+import config from '../../../../config/config.js';
 
 import './Switch.css';
 
