@@ -3,6 +3,7 @@ import React from 'react';
 import NavigationBar from '../navigation-bar/NavigationBar.jsx'
 import HomePage from './home-page/HomePage.jsx';
 import ConnectRaspberryPage from './connect-raspberry-page/ConnectRaspberryPage.jsx';
+import PhotosPage from './photos-page/PhotosPage.jsx';
 
 import './MainPage.css'
 
@@ -32,45 +33,31 @@ class MainPage extends React.Component{
 
     render(){
 
-		switch (this.state.currentPageDisplayed){
+		let subPage;
 
+		switch (this.state.currentPageDisplayed) {
 			case 'Photos':
-				return(
-					<div className="main-page">
-						<NavigationBar
-							Pages = {Pages}
-							onPageChanged={this.handleClick}
-						/>
-						Photos
-					</div>
-				);
+				subPage = <PhotosPage/>;
 				break;
 
-			case 'Home':
-				return(
-					<div className="main-page">
-						<NavigationBar
-							Pages = {Pages}
-							onPageChanged={this.handleClick}
-						/>
-						<HomePage/>
-					</div>
-				);
+			case 'Home' :
+				subPage = <HomePage/>;
 				break;
 
 			case 'Connect Raspberry':
-				return(
-					<div className="main-page">
-						<NavigationBar
-							Pages = {Pages}
-							onPageChanged={this.handleClick}
-						/>
-						<ConnectRaspberryPage/>
-					</div>
-				);
+				subPage = <ConnectRaspberryPage/>;
 				break;
 		}
 
+		return(
+			<div className="main-page">
+				<NavigationBar
+					Pages = {Pages}
+					onPageChanged={this.handleClick}
+				/>
+				{subPage}
+			</div>
+		)
     }
 }
 
