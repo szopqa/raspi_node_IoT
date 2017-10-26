@@ -6,7 +6,9 @@ class ConnectRaspberryPage extends React.Component{
 
 	render(){
 		return(
-			<Connector/>
+			<div>
+				<Connector/>
+			</div>
 		)
 	}
 }

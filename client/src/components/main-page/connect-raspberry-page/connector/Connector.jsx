@@ -9,7 +9,7 @@ import {
 
 import Button from '../../home-page/switch/Button';
 
-import './Connector.css'
+import '../ConnectRaspberryPage.css'
 
 class Connector extends React.Component {
 

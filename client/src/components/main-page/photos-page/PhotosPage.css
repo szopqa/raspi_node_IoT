@@ -1,0 +1,19 @@
+h1{
+    font-size: 3em;
+}
+
+.photos-page{
+    margin-top: 2%;
+}
+
+.notifications {
+    padding: 5%;
+    border-radius: 10%;
+    background: #b23d42;
+    height: 100%;
+}
+
+.single-notification{
+    font-size: 1.5em;
+    text-align: left;
+}
