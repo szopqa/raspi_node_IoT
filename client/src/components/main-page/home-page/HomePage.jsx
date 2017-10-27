@@ -4,6 +4,7 @@ import {Grid,Col,Row} from 'react-bootstrap';
 import PinSwitch from './switch/PinSwitch.jsx';
 import ServoSwitch from './switch/ServoSwitch.jsx';
 import Video from './video/Video.jsx';
+import FaceTracker from '../home-page/video/FaceTracker.jsx';
 
 function PinSwitches (props){
 	return (

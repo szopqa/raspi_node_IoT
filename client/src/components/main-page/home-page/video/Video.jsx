@@ -13,7 +13,6 @@ class Video extends React.Component {
 	}
 
 	render(){
-
 		//used when raspberry is connected
 		let raspberryStream = 'http://'+config.serverIP+':8081/';
 

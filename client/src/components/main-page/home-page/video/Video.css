@@ -13,3 +13,7 @@
     width: 100%;
     border-radius: 20px;
 }
+
+#cameraOutput {
+    width: 100%;
+}
