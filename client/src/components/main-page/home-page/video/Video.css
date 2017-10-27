@@ -14,6 +14,11 @@
     border-radius: 20px;
 }
 
+#canvas{
+    margin-left: -320px;
+    z-index: 1;
+}
+
 #cameraOutput {
     width: 100%;
 }

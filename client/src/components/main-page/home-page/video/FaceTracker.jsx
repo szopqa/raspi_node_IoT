@@ -34,8 +34,8 @@ export default class FaceTracker extends React.Component {
 				context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
 
 
-				/*console.log('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
-				console.log('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);*/
+				console.log('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
+				console.log('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
 			})
 		})
 	}
@@ -45,11 +45,15 @@ export default class FaceTracker extends React.Component {
 	}
 
 	render () {
+
+		const width = 480;
+		const height = 640;
+
 		return (
 			<div className="cameraOutput">
-				<video ref="cameraOutput" width="320" height="240" autoPlay loop muted>
+				<video ref="cameraOutput" width={width} height={height} autoPlay loop muted>
 				</video>
-				<canvas ref="canvas" width="320" height="240">
+				<canvas id ="canvas" ref="canvas" width={width} height={height}>
 				</canvas>
 			</div>
 		)

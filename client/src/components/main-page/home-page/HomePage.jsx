@@ -18,7 +18,7 @@ function PinSwitches (props){
 						/>
 					</Col>
 					<Col xs={12} lg={6}>
-						<Video/>
+							<Video/>
 					</Col>
 				</Row>
 				<Row className = "show-grid">
