@@ -9,7 +9,6 @@ class ConnectRaspberryPage extends React.Component{
 		return(
 			<div>
 				<Connector/>
-				<FaceTracker/>
 			</div>
 		)
 	}

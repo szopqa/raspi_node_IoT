@@ -10,7 +10,7 @@ import {
 	ControlLabel,
 	Jumbotron} from 'react-bootstrap';
 
-import Button from '../main-page/home-page/switch/Button.jsx'
+import Button from '../pages/home-page/switch/Button.jsx'
 
 class Login extends React.Component {
 

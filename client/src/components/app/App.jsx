@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from '../header/Header.jsx';
-import MainPage from '../main-page/MainPage.jsx';
+import MainPage from '../pages/MainPage.jsx';
 
 import './App.css';
 

@@ -7,9 +7,22 @@ require('tracking/build/data/face');
 
 
 export default class FaceTracker extends React.Component {
-	state = {};
+
+	state = {
+		isSystemBlocked : false
+	};
 
 	tracker = null;
+
+	handleFaceDetection(){
+		//console.log('Face detected!');
+	}
+
+	activateSystem(){
+		this.setState({
+			isSystemBlocked: false
+		})
+	}
 
 	componentDidMount() {
 
@@ -22,6 +35,17 @@ export default class FaceTracker extends React.Component {
 
 		this.tracker.on('track', event => {
 
+			if(! this.state.isSystemBlocked && event){
+				this.handleFaceDetection();
+				this.setState({
+					isSystemBlocked:true
+				});
+				setTimeout(this.activateSystem(),5000);
+			}
+
+			console.log(event);
+
+			/*
 			let context = this.refs.canvas.getContext('2d');
 			context.clearRect(0, 0, this.refs.canvas.width, this.refs.canvas.height);
 
@@ -36,7 +60,7 @@ export default class FaceTracker extends React.Component {
 
 				console.log('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
 				console.log('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
-			})
+			})*/
 		})
 	}
 
