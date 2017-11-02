@@ -1,0 +1,32 @@
+.signup-page{
+    margin-top:5%;
+}
+
+#signup-header{
+    font-size: 4em;
+    margin-bottom: 5%;
+}
+
+#signup-form{
+    width: 60%;
+    margin:auto;
+}
+
+#form-label{
+    font-size: 2.4em;
+    margin-bottom: 4%;
+}
+
+#form-button{
+    font-size: 2.5em;
+    background-color: #0e2e3e;
+    margin-top:5%;
+}
+
+#formHorizontalPassword{
+
+}
+
+#formHorizontalUsername{
+
+}

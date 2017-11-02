@@ -1,11 +1,12 @@
 import React from 'react';
 
 //Custom components
+import Header from '../header/Header.jsx';
 import NavigationBar from '../navigation-bar/NavigationBar.jsx'
 import HomePage from './home-page/HomePage.jsx';
 import ConnectRaspberryPage from './connect-raspberry-page/ConnectRaspberryPage.jsx';
 import PhotosPage from './photos-page/PhotosPage.jsx';
-import Login from '../login/Login.jsx';
+import SignupPage from '../pages/signup-page/SignupPage.jsx';
 
 import './MainPage.css'
 
@@ -36,7 +37,7 @@ class MainPage extends React.Component{
 	}
 
 	handleLoggingIn (){
-		//AJAX request to database
+		//AJAX request to server
 
 		this.setState ({
 			isUserLoggedIn: true
@@ -64,6 +65,7 @@ class MainPage extends React.Component{
 		if(this.state.isUserLoggedIn){
 			return(
 				<div className="main-page">
+					<Header/>
 					<NavigationBar
 						Pages = {Pages}
 						onPageChanged={this.handleClick}
@@ -74,9 +76,7 @@ class MainPage extends React.Component{
 		}
 
 		return(
-			<Login
-				handleLoggingIn = {this.handleLoggingIn}
-			/>
+			<SignupPage/>
 		)
     }
 }
