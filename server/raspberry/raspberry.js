@@ -1,11 +1,12 @@
 var j5 = require('johnny-five');
-var raspi = require('raspi-io');
-var RaspiCam = require('raspicam');
+//var raspi = require('raspi-io');
+//var RaspiCam = require('raspicam');
 
 var switchController = require('../controllers/switchController.js');
 
 module.exports = function (app) {
 
+	/*
 	var board = new j5.Board({
 		io : new raspi()
 	});
@@ -36,6 +37,8 @@ module.exports = function (app) {
 				center : true,
 			}),
 		};
-		switchController(app,pins);
 	});
+	*/
+
+	switchController(app);
 };

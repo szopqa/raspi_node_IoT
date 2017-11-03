@@ -1,4 +1,4 @@
-module.exports = function switchController(app,pins) {
+module.exports = function switchController(app) {
 
 	app.post('/switch/:pinNumber', function (req,res) {
 
@@ -7,18 +7,15 @@ module.exports = function switchController(app,pins) {
 
 		switch (pinNumber){
 			case '7':
-				pinShouldBeTurnedOn ? pins.led7.on() : pins.led7.off();
-				res.send('Pin 7 switched ' +(pins.led7.isOn ? 'ON' : 'OFF'));
+				res.send('Pin 7 switched ' +(pinShouldBeTurnedOn ? 'ON' : 'OFF'));
 				break;
 
 			case '22':
-				pinShouldBeTurnedOn ? pins.led22.on() : pins.led22.off();
-				res.send('Pin 22 switched ' +(pins.led22.isOn ? 'ON' : 'OFF'));
+				res.send('Pin 22 switched ' +(pinShouldBeTurnedOn ? 'ON' : 'OFF'));
 				break;
 
 			case '24':
-				pinShouldBeTurnedOn ? pins.led24.on() : pins.led24.off();
-				res.send('Pin 24 switched ' +(pins.led24.isOn ? 'ON' : 'OFF'));
+				res.send('Pin 24 switched ' +(pinShouldBeTurnedOn ? 'ON' : 'OFF'));
 				break;
 
 			default:
@@ -34,16 +31,13 @@ module.exports = function switchController(app,pins) {
 		switch (servoAction){
 
 			case 'min':
-				pins.servo.min();
 				res.send('Switched servo position to : min');
 				break;
 
 			case 'max':
-				pins.servo.max();
 				res.send('Switched servo position to : max');
 				break;
 			case 'center':
-				pins.servo.center();
 				res.send('Switched servo position to : center');
 				break;
 
@@ -51,17 +45,5 @@ module.exports = function switchController(app,pins) {
 				res.status(400).send('Invalid servo action');
 				break;
 		}
-
-
 	});
-
-	app.get('/switch', function (req,res) {
-
-		res.send({
-			isPin7On : pins.led7.isOn,
-			isPin24On : pins.led24.isOn,
-			isPin22On : pins.led22.isOn,
-		})
-	});
-
 };
