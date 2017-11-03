@@ -10,7 +10,7 @@ function Header (props) {
 		<div className="container">
 			<Grid>
 				<Row className = "App-header">
-					<Col smHidden xsHidden lg={2}>
+					<Col smHidden mdHidden xsHidden lg={2}>
 						<div className="App-logo">
 							<img src={logo} alt="logo"/>
 						</div>
