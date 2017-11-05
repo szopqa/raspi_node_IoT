@@ -8,7 +8,7 @@ h1{
 
 .notifications {
     padding: 5%;
-    border-radius: 10%;
+    border-radius: 20px;
     background: #b23d42;
     height: 100%;
 }
@@ -25,5 +25,17 @@ h1{
 .single-photo {
     display: inline-block;
     background-color: #968f74;
-    margin: 2%;
+    margin-bottom: 10%;
 }
+
+.image:hover{
+    width: 200%;
+    z-index: 1;
+}
+
+.image{
+    width: 100%;
+    transition: 1s;
+    position:relative;
+}
+
