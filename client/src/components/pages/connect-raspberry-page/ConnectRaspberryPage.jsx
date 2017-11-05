@@ -7,7 +7,7 @@ class ConnectRaspberryPage extends React.Component{
 
 	render(){
 		return(
-			<div>
+			<div className="connect-raspberry-page">
 				<Connector/>
 			</div>
 		)
