@@ -84,7 +84,7 @@ class Switch extends React.Component {
 
 	render () {
 		return(
-			<div className="switch" style={{background: (this.state.isPinTurnedOn ? '#1DAA2A':'#8A090D')}}>
+			<div className="switch" style={{background: (this.state.isPinTurnedOn ? '#1e8727':'#8A090D')}}>
 				<div className="switch-header">
 					{this.props.header}
 				</div>

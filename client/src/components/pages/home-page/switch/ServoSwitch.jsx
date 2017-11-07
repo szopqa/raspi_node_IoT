@@ -17,7 +17,7 @@ class ServoSwitch extends React.Component {
 		super(props);
 		this.state = {
 			currentPosition : position.center,
-			status : 'Servo is at position : ' + position.center,
+			status : 'Camera is at position : ' + position.center,
 			buttons : [
 				{isDisabled : false},
 				{isDisabled : false},
@@ -37,7 +37,7 @@ class ServoSwitch extends React.Component {
 
 			this.setState ({
 				currentPosition : position.center,
-				status : 'Servo is at position : ' + position.center,
+				status : 'Camera is at position : ' + position.center,
 				buttons: buttons
 			})
 		})
@@ -80,7 +80,7 @@ class ServoSwitch extends React.Component {
 			console.log(response);
 			this.setState({
 				currentPosition : servoAction,
-				status : 'Servo is at position : ' + servoAction,
+				status : 'Camera is at position : ' + servoAction,
 			})
 		}).catch((err) => {
 			this.setState({

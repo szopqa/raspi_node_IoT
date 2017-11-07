@@ -13,7 +13,7 @@ function PinSwitches (props){
 				<Row className = "show-grid">
 					<Col xs={12} lg={6}>
 						<ServoSwitch
-							header = 'Servo manipulator'
+							header = 'Adjust camera position'
 							pinNumber = {33}
 						/>
 					</Col>
