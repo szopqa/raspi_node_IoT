@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link} from 'react-router-dom';
 
 export default class Notifications extends React.Component{
 
@@ -6,9 +7,16 @@ export default class Notifications extends React.Component{
 		super(props);
 		this.state = {
 			notifications : [
-				'first notification',
-				'second notification',
-				'third and definitely last notification',]
+				{
+					id : 1,
+					body : 'first notification'},
+				{
+					id : 2,
+					body : 'second notification'},
+				{
+					id : 3,
+					body : 'third and definitely last notification'},
+			]
 		}
 	}
 
@@ -20,7 +28,7 @@ export default class Notifications extends React.Component{
 					{this.state.notifications.map((notification,index) =>{
 						return(
 							<li key={index} className="single-notification">
-								{notification}
+								{notification.body}
 							</li>
 						)
 					})}

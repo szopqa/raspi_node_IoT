@@ -18,7 +18,7 @@ class Video extends React.Component {
 
 		return(
 			<div className="video-viewer">
-				<img src={testingPhoto}  id="video" alt="Loading view ..."/>
+				<img src={raspberryStream}  id="video" alt="Loading view ..."/>
 			</div>
 		);
 	}
