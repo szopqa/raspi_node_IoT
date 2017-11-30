@@ -9,7 +9,7 @@ class Switch extends React.Component {
 
 	constructor(props){
 		super(props);
-		this.state = {
+		this.state = 	{
 			isPinTurnedOn : false,
 			status: 'PIN '+ this.props.pinNumber + ' is turned OFF',
 			isButtonDisabled : false,
@@ -22,7 +22,7 @@ class Switch extends React.Component {
 		axios.get(`http://${config.serverAddress}/switch`)
 			.then((response) => {
 
-				var isPinAlreadyOn = response.data['isPin' + this.props.pinNumber + 'On'];
+				let isPinAlreadyOn = response.data['isPin' + this.props.pinNumber + 'On'];
 
 				this.setState({
 					isPinTurnedOn : isPinAlreadyOn,
@@ -38,19 +38,6 @@ class Switch extends React.Component {
 	handleClick () {
 
 		if( ! this.state.isButtonDisabled){
-
-			//Async request simulation purpose
-			/*
-			setTimeout(() => {
-				this.setState ({
-					isPinTurnedOn: ! this.state.isPinTurnedOn,
-					status : `PIN ${this.props.pinNumber} is turned 
-							${this.state.isPinTurnedOn ? 'OFF' : 'ON'}`,
-					isButtonDisabled: false,
-				})
-			},3000);
-			*/
-
 			axios.post(`http://${config.serverAddress}/switch/${this.props.pinNumber}`,
 				{
 					pinShouldBeTurnedOn : ! this.state.isPinTurnedOn
@@ -83,8 +70,11 @@ class Switch extends React.Component {
 	}
 
 	render () {
+		const colorWhenOn = '#1e8727';
+		const colorWhenOff = '#8A090D';
+
 		return(
-			<div className="switch" style={{background: (this.state.isPinTurnedOn ? '#1e8727':'#8A090D')}}>
+			<div className="switch" style={{background: (this.state.isPinTurnedOn ? colorWhenOn : colorWhenOff)}}>
 				<div className="switch-header">
 					{this.props.header}
 				</div>

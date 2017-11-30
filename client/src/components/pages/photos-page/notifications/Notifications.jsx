@@ -25,7 +25,7 @@ export default class Notifications extends React.Component{
 			<div className="notifications">
 				<h1>Notifications</h1>
 				<ul>
-					{this.state.notifications.map((notification,index) =>{
+					{this.state.notifications.map((notification,index) => {
 						return(
 							<li key={index} className="single-notification">
 								{notification.body}
