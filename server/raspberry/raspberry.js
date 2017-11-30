@@ -1,6 +1,8 @@
 var j5 = require('johnny-five');
 var raspi = require('raspi-io');
-// var RaspiCam = require('raspicam');
+var RaspiCam = require('raspicam');
+
+var cameraConfig = require('./cameraConfig.js');
 
 var switchController = require('../controllers/switchController.js');
 var motionHandler = require('./motionHandler.js');
@@ -11,20 +13,8 @@ module.exports = function (app) {
 		io : new raspi()
 	});
 
-	// var camera = new RaspiCam({
-	// 	mode : 'photo',
-	// 	output : new Date()
-	// 			 .toISOString()
-	// 			 .replace(/T/, ' ')
-	// 			 .replace(/\..+/, ''),
-	// 	width : 640,
-	// 	height : 480,
-	// 	quality : 100,
-	// 	encoding : 'jpg',
-	// });
-
 	board.on('ready', function () {
-		
+
 		var pins = {
 			pin7 : new j5.Led('P1-7'),
 			pin24 : new j5.Led('P1-24'),
@@ -35,8 +25,8 @@ module.exports = function (app) {
 				range : [0,360],
 				center : true,
 			}),
-			motion : new j5.Motion('P1-37')
-			//camera : this.camera,
+			motion : new j5.Motion('P1-37'),
+			camera : new RaspiCam( cameraConfig.parameters )
 		};
 
 		switchController(app,pins);
