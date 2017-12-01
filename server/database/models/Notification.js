@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
-var notificationSchema = Schema({
+var notificationSchema = mongoose.Schema({
 	date : {
 		type : Date,
 		default : Date.now()
 	},
 	attachment : String,
+	image : {
+		data : Buffer,
+		contentType : String
+	},
 	description : String,
 	displayed : {
 		type : Boolean,
@@ -13,6 +17,4 @@ var notificationSchema = Schema({
 	}
 });
 
-module.exports({
-	notificationSchema : notificationSchema
-});
+var Notification = module.exports = mongoose.model('Notifications',notificationSchema);

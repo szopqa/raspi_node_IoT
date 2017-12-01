@@ -4,7 +4,6 @@ var db = {
 	password : 'iot_raspi'
 };
 
-
-module.exports({
+module.exports = {
 	db : db
-});
+};
