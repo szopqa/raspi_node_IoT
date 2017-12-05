@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 var Notifications = require('../database/models/Notification.js');
 
 //simple object used for validation before clearing database
-var secret = require('../config/secret.js');
+var secret = require('../config/secrets.js');
 
 module.exports = function (app) {
 
