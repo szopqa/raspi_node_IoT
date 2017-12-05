@@ -5,6 +5,8 @@ var RaspiCam = require('raspicam');
 var cameraConfig = require('./cameraConfig.js');
 
 var switchController = require('../controllers/switchController.js');
+var notificationController = require('../controllers/notificationsController.js');
+var streamController = require('../controllers/streamController.js');
 var motionHandler = require('./motionHandler.js');
 
 module.exports = function (app) {
@@ -29,7 +31,11 @@ module.exports = function (app) {
 			camera : new RaspiCam( cameraConfig.parameters )
 		};
 
+		/*HTTP controllers*/
 		switchController(app,pins);
+		notificationController(app);
+        streamController(app);
+
 		motionHandler(pins);
 	});
 };
