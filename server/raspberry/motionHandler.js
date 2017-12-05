@@ -1,30 +1,31 @@
 var fs = require('fs');
 
 var cameraConfig = require('./cameraConfig.js');
-var Notification = require('../database/models/Notification.js');
+var imageUploader = require('./dataUploader.js');
 
 function getUniqueFilename ( camera ) {
     camera.opts.output = cameraConfig.changeFilename();
 }
 
 function capturePhotoWith ( camera ) {
+
+    //Needed because photos were saved multiple times
+    var wasSaved = false;
+
     getUniqueFilename( camera );
     camera.start();
-    camera.on("read", function(err, timestamp, filename){
-        if( ! err ){
+
+    camera.on("read", function(err, timestamp, capturedPhoto){
+        if( ! err ) {
             console.log('Timestamp : ' + timestamp
-                    + ' filename : ' + filename + ' taken!');
+                + ' filename : ' + capturedPhoto + ' taken!');
 
-            var notification = new Notification();
-                notification.description = filename;
-                notification.image.data = fs.readFileSync('./photos/'+filename);
-                notification.image.contentType = 'image/jpg';
-
-            notification.save(function (err,notification) {
-                if(!err)
-                    console.log('Saved ' + notification + ' to mongoDB');
-
-            })
+            if(!wasSaved){
+                imageUploader.uploadImage('./photos/' + capturedPhoto);
+                wasSaved = true;
+            }
+        } else {
+            console.log(err);
         }
     });
 }
