@@ -1,5 +1,6 @@
 h1{
     font-size: 3em;
+    color:cadetblue;
 }
 
 .photos-page{
@@ -9,13 +10,22 @@ h1{
 .notifications {
     padding: 5%;
     border-radius: 20px;
-    background: #b23d42;
+    /*background: #b23d42;*/
     height: 100%;
+    background: none;
+    border: 3px solid #53DEC3;
+}
+
+.status{
+    font-size: 1.5em;
+    text-align: center;
+    color: #53DEC3;
 }
 
 .single-notification{
     font-size: 1.5em;
     text-align: left;
+    color: #53DEC3;
 }
 
 .photos{
