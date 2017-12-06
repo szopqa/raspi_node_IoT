@@ -47,7 +47,6 @@ module.exports = function switchController(app,pins) {
 	});
 
 	app.get('/switch', function (req,res) {
-
 		res.send({
 			isPin7On : pins.pin7.isOn,
 			isPin24On : pins.pin24.isOn,

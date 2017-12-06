@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const config = require('./config/config.js');
+const mongoConnectionEstablisher = require('./database/mongoConnectionEstablisher.js');
+const config = require('./config/secrets.js');
 
 const app = express();
 
@@ -18,16 +19,7 @@ app.use(function (req, res, next) {
 });
 
 /*Connecting to database*/
-mongoose.connect(
-    'mongodb://'+config.db.username+':'+config.db.password+'@ds149855.mlab.com:49855/iot_raspi');
-mongoose.Promise = global.Promise;
-var db = mongoose.connection;
-db.once('open',function () {
-	console.log('Connected to ' + config.db.databaseName + ' database');
-});
-db.on('error',function (err) {
-	console.log(err);
-});
+mongoConnectionEstablisher();
 
 require('./raspberry/raspberry.js') (app);
 

@@ -1,5 +1,5 @@
 function formatNotificationDate (filename) {
-    // const regex = /^(?:.*?)(\d*)-(\d*)-(\d*)\w(\d*)-(\d*)-(\d*)/g;
+
     const regex = /(?:.\/photos\/)(\d*)-(\d*)-(\d*)T(\d*)-(\d*)-(\d*)/g;
 
     var date = {
