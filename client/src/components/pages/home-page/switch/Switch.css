@@ -1,17 +1,23 @@
 .switch {
     margin-top: 5%;
-    margin-bottom: 5%;
     padding: 4%;
     text-align: center;
     font-size: 1.8em;
-    border-radius: 40px;
+    border-radius: 20px;
     border: 3px solid transparent;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     color: #b9d2ff;
     background-color: #1e8727;
     opacity: 0.85;
+    width: 90%;
+    margin-left: 5%;
 }
-    
+
+.mode-switch {
+    width: 60%;
+    margin-left: 20%;
+}
+
 .switch-header{
     font-size: 1em;
     font-weight:bold;

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    ButtonToolbar,
     Grid,
     Row,
     Col,} from 'react-bootstrap';
@@ -20,6 +19,9 @@ class NavigationBar extends React.Component{
 				{isLoaded : true},
 				{isLoaded : false}
 			],
+            mode : {
+                isStreamMode : false
+            }
         }
     }
 
@@ -56,25 +58,18 @@ class NavigationBar extends React.Component{
             <div className="navigation-bar container">
                 <Grid>
                     <Row>
-                        <Col sm={4} xs={12} lg={4}>
+                        <Col sm={6} xs={12} lg={6}>
                             <NavButton
                                 value = 'Photos'
                                 isDisabled = {this.state.pages[0].isLoaded}
                                 onClick = {this.handleChange.bind(this,Pages.Photos)}
                             />
                         </Col>
-                        <Col sm={4} xs={12} lg={4}>
+                        <Col sm={6} xs={12} lg={6}>
                             <NavButton
                                 value = 'Home'
                                 isDisabled = {this.state.pages[1].isLoaded}
                                 onClick = {this.handleChange.bind(this,Pages.Home)}
-                            />
-                        </Col>
-                        <Col sm={4} xs={12} lg={4}>
-                            <NavButton
-                                value = 'Connect Raspberry'
-                                isDisabled = {this.state.pages[2].isLoaded}
-                                onClick = {this.handleChange.bind(this,Pages.ConnectRaspberry)}
                             />
                         </Col>
                     </Row>

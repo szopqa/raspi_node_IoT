@@ -92,24 +92,24 @@ class ServoSwitch extends React.Component {
 	render(){
 		return(
 			<div className="switch">
-				<div className="switch-header">
+				<div className="switch-headerswi">
 					{this.props.header}
 				</div>
 				<div className="switch-status">
 					{this.state.status}
 				</div>
 				<Button
-					value = {'Left'}
+					value = {this.props.buttons[0]}
 					onClick = {this.handleClick.bind(this,position.min)}
 					isDisabled = {this.state.buttons[0].isDisabled}
 				/>
 				<Button
-					value = {'Center'}
+					value = {this.props.buttons[1]}
 					onClick = {this.handleClick.bind(this,position.center)}
 					isDisabled = {this.state.buttons[1].isDisabled}
 				/>
 				<Button
-					value = {'Right'}
+					value = {this.props.buttons[2]}
 					onClick = {this.handleClick.bind(this,position.max)}
 					isDisabled = {this.state.buttons[2].isDisabled}
 				/>
