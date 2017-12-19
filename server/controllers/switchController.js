@@ -20,24 +20,26 @@ module.exports = function switchController(app,pins) {
 		}
 	});
 
-	app.post('/servo',function (req,res) {
+	app.post('/servo/:servoNumber',function (req,res) {
+
+		const availableServos = ['servoVertical', 'servoHorizontal'];
 
 		var servoAction = req.body.servoAction;
+		var servoToManipulate = availableServos[ req.params.servoNumber ];
 
 		switch (servoAction){
-
 			case 'min':
-				pins.servo.min();
-				res.send('Switched servo position to : min');
+				pins[servoToManipulate].min();
+				res.send('Switched servo ' + servoToManipulate + ' position to : min');
 				break;
 
 			case 'max':
-				pins.servo.max();
-				res.send('Switched servo position to : max');
+                pins[servoToManipulate].max();
+				res.send('Switched servo ' + servoToManipulate + ' position to : max');
 				break;
 			case 'center':
-				pins.servo.center();
-				res.send('Switched servo position to : center');
+                pins[servoToManipulate].center();
+				res.send('Switched servo ' + servoToManipulate + ' position to : center');
 				break;
 
 			default :

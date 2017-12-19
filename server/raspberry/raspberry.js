@@ -21,12 +21,18 @@ module.exports = function (app) {
 			pin7 : new j5.Led('P1-7'),
 			pin24 : new j5.Led('P1-24'),
 			pin22 : new j5.Led('P1-22'),
-			servo : new j5.Servo({
+			servoHorizontal : new j5.Servo({
 				pin : 'P1-33',
-				type : 'continuous',
-				range : [0,360],
+				range : [0,180],
+				fps : 1,
 				center : true,
 			}),
+            servoVertical : new j5.Servo({
+                pin : 'P1-12',
+                type : 'continuous',
+                range : [0,70],
+                center : true,
+            }),
 			motion : new j5.Motion('P1-37'),
 			camera : new RaspiCam( cameraConfig.parameters )
 		};

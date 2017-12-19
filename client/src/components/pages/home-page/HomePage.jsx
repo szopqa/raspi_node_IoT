@@ -17,8 +17,9 @@ function PinSwitches (props){
 					<Row>
                         <ServoSwitch
                             header = 'Adjust camera position'
-                            pinNumber = {33}
+                            pinNumber = {12}
                             buttons = { ['Up', 'Center', 'Down'] }
+                            servoNumber = {0}
                         />
 					</Row>
 					<Row>
@@ -26,6 +27,7 @@ function PinSwitches (props){
                             header = 'Adjust camera position'
                             pinNumber = {33}
                             buttons = { ['Left', 'Center', 'Right'] }
+                            servoNumber = {1}
                         />
 					</Row>
 				</Col>

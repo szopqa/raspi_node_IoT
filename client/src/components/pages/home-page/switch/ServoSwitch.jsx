@@ -27,7 +27,7 @@ class ServoSwitch extends React.Component {
 	}
 
 	componentDidMount(){
-		axios.post(`http://${config.serverAddress}/servo/`,{
+		axios.post(`http://${config.serverAddress}/servo/${this.props.servoNumber}`,{
 			servoAction : position.center
 		})
 		.then((response) => {
@@ -73,7 +73,7 @@ class ServoSwitch extends React.Component {
 				break;
 		}
 
-		axios.post(`http://${config.serverAddress}/servo/`,{
+		axios.post(`http://${config.serverAddress}/servo/${this.props.servoNumber}`,{
 			servoAction : servoAction
 		})
 		.then((response) => {
