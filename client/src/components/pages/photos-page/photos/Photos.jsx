@@ -6,11 +6,7 @@ import {
 } from 'react-bootstrap';
 
 const Photo = (props) => {
-
-	//getting image from resources
-	// let imagePath = require('./'+props.name);
 	let photoIndex = props.index;
-	console.log(props);
 	return(
 		//Photos displayed on the right side will animate to left
 		<div className="single-photo">

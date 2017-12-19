@@ -10,42 +10,24 @@ class Switch extends React.Component {
     constructor(props){
         super(props);
         this.state = 	{
-            isStreamModeOn : true,
-            status: 'Mode : Stream',
+            isStreamModeOn : this.props.state.isStreamModeOn,
+            status : 'Mode : ' + ( this.props.state.isStreamModeOn ? 'Stream' : 'Standby'),
             isButtonDisabled : false
         }
     }
-
-    componentDidMount(){
-
-        //Getting current pins state
-        axios.post(`http://${config.serverAddress}/stream`,{
-            streamShouldBeTurnedOn : ! this.state.isStreamModeOn
-        }).then((response) => {
-            console.log(response);
-            this.setState({
-                streamShouldBeTurnedOn : ! this.state.isStreamModeOn,
-                status : 'Mode : ' + (this.state.isStreamModeOn ? 'Stream' : 'Standby'),
-                isButtonDisabled : false
-            })
-        })
-        .catch((err) => {
-
-        })
-    }
-
+    
     handleClick () {
 
         //Getting current pins state
         axios.post(`http://${config.serverAddress}/stream`,{
             streamShouldBeTurnedOn : ! this.state.isStreamModeOn
         }).then((response) => {
-            console.log(response);
             this.setState({
-                streamShouldBeTurnedOn : ! this.state.isStreamModeOn,
-                status : 'Mode : ' + (this.state.isStreamModeOn ? 'Stream' : 'Standby'),
+                isStreamModeOn : ! this.state.isStreamModeOn,
+                status : 'Mode : ' + ( this.props.state.isStreamModeOn ?  'Standby' : 'Stream'),
                 isButtonDisabled : false
-            })
+            });
+            this.props.state.isStreamModeOn = ! this.props.state.isStreamModeOn;
         })
         .catch((err) => {
 

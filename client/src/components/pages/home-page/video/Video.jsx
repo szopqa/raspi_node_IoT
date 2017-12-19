@@ -15,11 +15,18 @@ class Video extends React.Component {
 	render(){
 		//used when raspberry is connected
 		let raspberryStream = 'http://'+config.serverIP+':8081/';
-
+		let isStreamModeOn = this.props.state.isStreamModeOn;
 		return(
-			<div className="video-viewer">
-					<img src={testingPhoto}  id="video" alt="Loading view ..."/>
-			</div>
+			(isStreamModeOn ? (
+				<div className="video-viewer">
+                    <img src={raspberryStream}  id="video" alt="Loading view ..."/>
+                </div>
+			) : (
+                <div className="video-viewer">
+                    <img src={testingPhoto}  id="video" alt="Loading view ..."/>
+				</div>
+			))
+
 		);
 	}
 

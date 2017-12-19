@@ -16,12 +16,8 @@ class NavigationBar extends React.Component{
             currentlyChosen : 1,
 			pages : [
 				{isLoaded : false},
-				{isLoaded : true},
-				{isLoaded : false}
-			],
-            mode : {
-                isStreamMode : false
-            }
+				{isLoaded : true}
+			]
         }
     }
 
@@ -40,10 +36,6 @@ class NavigationBar extends React.Component{
 
 			case 'Home':
 				pages[1].isLoaded = true;
-				break;
-
-			case 'Connect Raspberry':
-				pages[2].isLoaded = true;
 				break;
 		}
 
@@ -80,27 +72,3 @@ class NavigationBar extends React.Component{
 }
 
 export default NavigationBar;
-/*
-
-<ButtonToolbar>
-    <Button onClick = {this.handleChange.bind(this,Pages.Photos)}
-            className ="nav-button" bsSize="large" disabled = {this.state.pages[0].isLoaded}>
-		{Pages.Photos}
-    </Button>
-</ButtonToolbar>
-
-<ButtonToolbar>
-                                <Button onClick = {this.handleChange.bind(this,Pages.Home)}
-                                        className ="nav-button" bsSize="large" disabled = {this.state.pages[1].isLoaded}>
-                                    {Pages.Home}
-                                </Button>
-                            </ButtonToolbar>
-
-<ButtonToolbar>
-                                <Button onClick = {this.handleChange.bind(this,Pages.ConnectRaspberry)}
-                                        className ="nav-button" bsSize="large"  disabled = {this.state.pages[2].isLoaded}>
-                                    {Pages.ConnectRaspberry}
-                                </Button>
-                            </ButtonToolbar>
-
-*/

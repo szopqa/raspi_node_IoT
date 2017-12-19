@@ -7,6 +7,8 @@ import ServoSwitch from './switch/ServoSwitch.jsx';
 import Video from './video/Video.jsx';
 import FaceTracker from '../home-page/video/FaceTracker.jsx';
 
+import applicationState from '../../../globals/applicationState.js';
+
 function PinSwitches (props){
 	return (
 		<div className="container">
@@ -29,12 +31,14 @@ function PinSwitches (props){
 				</Col>
                 <Col xs={12} lg={6}>
 					<Row>
-						<Video/>
+						<Video
+                            state = {applicationState}
+						/>
 					</Row>
                     <Row>
                         <StreamSwitch
-                            header = {"Mode switch"}
-                        />
+                            state = {applicationState}
+						/>
                     </Row>
                 </Col>
 			</Grid>
@@ -43,37 +47,3 @@ function PinSwitches (props){
 }
 
 export default PinSwitches;
-
-
-/*
-* <div className="container">
-			<Grid>
-				<Row className = "show-grid">
-					<Col xs={12} lg={6}>
-						<ServoSwitch
-							header = 'Adjust camera position'
-							pinNumber = {33}
-							buttons = { ['Up', 'Center', 'Down'] }
-						/>
-					</Col>
-					<Col xs={12} lg={6}>
-							<Video/>
-					</Col>
-				</Row>
-				<Row className = "show-grid">
-                    <Col xs={12} lg={6}>
-                        <ServoSwitch
-                            header = 'Adjust camera position'
-                            pinNumber = {33}
-                            buttons = { ['Left', 'Center', 'Right'] }
-                        />
-                    </Col>
-					<Col xs={12} lg={4}>
-						<StreamSwitch
-							header = {"Mode switch"}
-						/>
-					</Col>
-				</Row>
-			</Grid>
-		</div>
-* */

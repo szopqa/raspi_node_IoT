@@ -15,27 +15,6 @@ export default class Notifications extends React.Component{
 		}
 	}
 
-	/*componentDidMount(){
-		axios.get(`http://${config.serverAddress}/notifications`)
-			.then((response) => {
-				let fetchedNotifications = [];
-				fetchedNotifications.push(response);
-
-				let status = fetchedNotifications.length === 0 ? 'You have no notifications' : '';
-
-				this.setState({
-					notifications : fetchedNotifications ,
-					status : status
-				});
-			})
-			.catch((err) => {
-				this.setState({
-					error : `Error while fetching data :  ${err.toString()}`
-				})
-			});
-		this.setState({status : 'Fetching notifications from database ... '});
-	}
-*/
 	render(){
 
 		let status = this.props.fetchedNotifications.length === 0 ? 'Loading data ...' : '';
