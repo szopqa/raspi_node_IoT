@@ -2,7 +2,7 @@ import React from 'react';
 import config from '../../../../config/config';
 
 //Static photo used for testing
-import testingPhoto from '../../../../images/test.jpg'
+import standby from '../../../../images/standby.png'
 
 import './Video.css';
 
@@ -22,8 +22,11 @@ class Video extends React.Component {
                     <img src={raspberryStream}  id="video" alt="Loading view ..."/>
                 </div>
 			) : (
-                <div className="video-viewer">
-                    <img src={testingPhoto}  id="video" alt="Loading view ..."/>
+				<div className="standby-information">
+					Standby mode is on
+					<div className="standby-icon">
+						<img src={standby} alt="Loading view ..."/>
+					</div>
 				</div>
 			))
 

@@ -14,6 +14,7 @@
     "express": "^4.16.2",
     "johnny-five": "^0.11.6",
     "mongoose": "^4.13.0",
+    "nodemailer": "^4.4.1",
     "raspicam": "^0.2.14"
   }
 }

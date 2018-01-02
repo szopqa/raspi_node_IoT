@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './Button';
 import axios from 'axios';
 import config from '../../../../config/config.js';
+import Video from  '../video/Video.jsx';
 
 import './Switch.css';
 
@@ -28,6 +29,7 @@ class Switch extends React.Component {
                 isButtonDisabled : false
             });
             this.props.state.isStreamModeOn = ! this.props.state.isStreamModeOn;
+            this.props.reloadAfterModeChange();
         })
         .catch((err) => {
 

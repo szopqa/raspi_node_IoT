@@ -13,6 +13,23 @@
     border-radius: 20px;
 }
 
+.standby-information {
+    margin-top: 8%;
+    color: white;
+    font-size: 2.4em;
+    font-weight: bold;
+}
+
+.standby-icon {
+    margin-top: 8%;
+    margin-bottom: 5%;
+    animation : pulseStandbyInformation 2.5s infinite;
+}
+
+@keyframes pulseStandbyInformation {
+    70% {transform:scale(1.9,1.9) }
+}
+
 #canvas{
     margin-left: -320px;
     z-index: 1;

@@ -27,25 +27,25 @@ class ServoSwitch extends React.Component {
 	}
 
 	componentDidMount(){
-		axios.post(`http://${config.serverAddress}/servo/${this.props.servoNumber}`,{
-			servoAction : position.center
-		})
-		.then((response) => {
-			console.log(response);
-			var buttons = this.state.buttons.slice();
-			buttons[1].isDisabled = true;
-
-			this.setState ({
-				currentPosition : position.center,
-				status : 'Camera is at position : ' + position.center,
-				buttons: buttons
-			})
-		})
-		.catch((err) => {
-			this.setState({
-				status : 'Error while connecting to server...',
-			})
-		})
+		// axios.post(`http://${config.serverAddress}/servo/${this.props.servoNumber}`,{
+		// 	servoAction : position.center
+		// })
+		// .then((response) => {
+		// 	console.log(response);
+		// 	var buttons = this.state.buttons.slice();
+		// 	buttons[1].isDisabled = true;
+        //
+		// 	this.setState ({
+		// 		currentPosition : position.center,
+		// 		status : 'Camera is at position : ' + position.center,
+		// 		buttons: buttons
+		// 	})
+		// })
+		// .catch((err) => {
+		// 	this.setState({
+		// 		status : 'Error while connecting to server...',
+		// 	})
+		// })
 	}
 
 	handleClick(servoAction){

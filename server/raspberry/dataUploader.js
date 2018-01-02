@@ -2,6 +2,7 @@ var cloudinary = require('cloudinary');
 
 var Notification = require('../database/models/Notification.js');
 var notificationFormatter = require('../utils/notificationFormatter.js');
+var mailSender = require('../mailNotification/mailSender.js');
 
 const cloudinaryData = require('../config/secrets.js').cloudinaryData;
 
@@ -11,28 +12,30 @@ cloudinary.config({
     api_secret: cloudinaryData.api_secret
 });
 
+//TODO : refactor
 function uploadImage (filepath) {
     cloudinary.uploader.upload(filepath, function(result) {
-        uploadNotification(filepath, result.secure_url)
+        uploadNotification('./photos/' + filepath, result.secure_url);
+        mailSender.send(filepath, result.secure_url);
     });
 };
 
-    function uploadNotification(filepath, imageURL) {
+function uploadNotification(filepath, imageURL) {
 
-        var notification = new Notification();
-            notification.description.time = notificationFormatter.formatNotificationDate(filepath);
-            notification.description.body = 'Someone entered protected area!';
-            notification.attachment = imageURL;
+    var notification = new Notification();
+        notification.description.time = notificationFormatter.formatNotificationDate(filepath);
+        notification.description.body = 'Someone entered protected area!';
+        notification.attachment = imageURL;
 
-        notification.save(function (err,notification) {
-            if(!err)
-                console.log('Saved ' + filepath + ' to database');
-            else
-                console.log(err);
-        })
-    }
+    notification.save(function (err,notification) {
+        if(!err)
+            console.log('Saved ' + filepath + ' to database');
+        else
+            console.log(err);
+    })
+}
 
 module.exports = {
     uploadImage : uploadImage,
     uploadNotification : uploadNotification
-}
+};

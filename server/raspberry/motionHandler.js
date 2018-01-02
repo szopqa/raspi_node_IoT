@@ -3,6 +3,14 @@ var fs = require('fs');
 var cameraConfig = require('./cameraConfig.js');
 var imageUploader = require('./dataUploader.js');
 
+module.exports = function(pins) {
+    pins.motion.on('motionstart',function(){
+        console.log('Motion detected!');
+
+        capturePhotoWith( pins.camera );
+    })
+};
+
 function getUniqueFilename ( camera ) {
     camera.opts.output = cameraConfig.changeFilename();
 }
@@ -21,7 +29,7 @@ function capturePhotoWith ( camera ) {
                 + ' filename : ' + capturedPhoto + ' taken!');
 
             if(!wasSaved){
-                imageUploader.uploadImage('./photos/' + capturedPhoto);
+                imageUploader.uploadImage(capturedPhoto);
                 wasSaved = true;
             }
         } else {
@@ -29,12 +37,3 @@ function capturePhotoWith ( camera ) {
         }
     });
 }
-
-module.exports = function(pins) {
-    pins.motion.on('motionstart',function(){
-        console.log('Motion detected!');
-        pins.pin7.toggle();
-
-        capturePhotoWith( pins.camera );
-    })
-};
