@@ -16,7 +16,7 @@ cloudinary.config({
 function uploadImage (filepath) {
     cloudinary.uploader.upload(filepath, function(result) {
         uploadNotification('./photos/' + filepath, result.secure_url);
-        mailSender.send(filepath, result.secure_url);
+        mailSender.send(filepath.replace('.jpg','').replace('T',' '), result.secure_url);
     });
 };
 
